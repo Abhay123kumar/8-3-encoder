@@ -1,0 +1,84 @@
+Overview
+
+An 8-to-3 encoder is a combinational logic circuit that converts eight distinct input lines (d0–d7) into a 3-bit binary output (q2, q1, q0). Only one input is expected to be active at a time. The output represents the binary code corresponding to the active input line. This circuit performs the reverse operation of a decoder.
+
+Working Principle
+
+Inputs: d0, d1, d2, d3, d4, d5, d6, d7
+
+Outputs: q2, q1, q0
+
+Rule: For any single active input, the output generates its equivalent binary code.
+
+For example:
+
+If d0 = 1 → Output = 000
+
+If d3 = 1 → Output = 011
+
+If d7 = 1 → Output = 111
+
+This greatly reduces the number of data lines needed in a circuit, making the design efficient and scalable.
+
+Truth Table
+Input (d7 d6 d5 d4 d3 d2 d1 d0)	Output (q2 q1 q0)
+00000001	000
+00000010	001
+00000100	010
+00001000	011
+00010000	100
+00100000	101
+01000000	110
+10000000	111
+Others	Undefined
+Boolean Equations
+
+From the truth table, the output functions are:
+
+q0 = d1 + d3 + d5 + d7
+
+q1 = d2 + d3 + d6 + d7
+
+q2 = d4 + d5 + d6 + d7
+
+Here + denotes the OR operation.
+
+Circuit Diagram
+
+The encoder can be built using OR gates.
+
+q0 uses 4-input OR gate with d1, d3, d5, d7.
+
+q1 uses 4-input OR gate with d2, d3, d6, d7.
+
+q2 uses 4-input OR gate with d4, d5, d6, d7.
+
+
+
+
+
+Applications
+
+Microprocessors: To encode multiple interrupt requests into fewer lines.
+
+Data Compression: Used in communication to reduce multiple inputs into compact form.
+
+Digital Systems: Efficiently representing large numbers of signals with fewer outputs.
+
+Keyboards and Input Devices: Encoding multiple keypresses into binary codes.
+
+Priority Encoders: Extensions of encoders that resolve conflicts when multiple inputs are active.
+
+Advantages
+
+Reduces the number of data lines.
+
+Simplifies circuit design.
+
+Efficient for transmitting and processing information.
+
+Limitations
+
+Only one input should be active at a time; otherwise, outputs are undefined.
+
+Requires a priority encoder in cases where multiple inputs may become active simultaneously.
